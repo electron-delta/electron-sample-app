@@ -1,12 +1,13 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "release": "electron-builder --win --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
@@ -51,6 +52,9 @@
             "x64"
           ]
         }
+      ],
+      "publish": [
+        "github"
       ]
     },
     "files": [
@@ -62,9 +66,9 @@
       "icon.ico",
       "styles.css"
     ],
-    "beforePack": "./beforePack.js",
-    "afterPack": "./afterPack.js",
-    "afterSign": "./afterSign.js",
     "afterAllArtifactBuild": "./afterAllArtifactBuild.js"
+  },
+  "dependencies": {
+    "electron-updater": "^4.6.5"
   }
 }

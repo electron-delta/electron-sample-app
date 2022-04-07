@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
+const { autoUpdater } = require("electron-updater");
 
 function createWindow() {
   // Create the browser window.
@@ -30,6 +31,8 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+
+  autoUpdater.checkForUpdatesAndNotify();
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
