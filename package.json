@@ -1,6 +1,6 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -37,7 +37,10 @@
       "createDesktopShortcut": "always",
       "deleteAppDataOnUninstall": true,
       "artifactName": "${productName}-${version}.${ext}",
-      "uninstallDisplayName": "${productName}"
+      "uninstallDisplayName": "${productName}",
+      "installerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
     },
     "win": {
       "target": [
@@ -56,6 +59,7 @@
       "index.html",
       "preload.js",
       "renderer.js",
+      "icon.ico",
       "styles.css"
     ],
     "beforePack": "./beforePack.js",
