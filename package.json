@@ -1,13 +1,13 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "electron-builder --win --publish=always"
+    "release": "npm install && electron-builder --win --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
