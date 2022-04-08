@@ -1,13 +1,13 @@
 {
   "name": "electron-quick-start",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "npm install && electron-builder --win --publish=always"
+    "release": "electron-builder --win --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
@@ -44,12 +44,12 @@
       "uninstallerIcon": "icon.ico"
     },
     "win": {
+      "sign": false,
       "target": [
         {
           "target": "nsis",
           "arch": [
-            "ia32",
-            "x64"
+            "ia32"
           ]
         }
       ],
@@ -66,7 +66,7 @@
       "icon.ico",
       "styles.css"
     ],
-    "afterAllArtifactBuild": "./afterAllArtifactBuild.js"
+    "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
     "electron-updater": "^4.6.5"
