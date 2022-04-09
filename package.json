@@ -1,6 +1,6 @@
 {
-  "name": "electron-quick-start",
-  "version": "0.0.7",
+  "name": "electron-sample-app",
+  "version": "0.0.2",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -44,12 +44,12 @@
       "uninstallerIcon": "icon.ico"
     },
     "win": {
-      "sign": false,
+      "sign": "sign.js",
       "target": [
         {
           "target": "nsis",
           "arch": [
-            "ia32"
+            "x64"
           ]
         }
       ],
