@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "@electron-delta/builder": "github:electron-delta/electron-delta",
-    "electron-updater": "^4.6.5"
+    "electron-updater": "^4.6.5",
+    "node-fetch": "^3.2.3"
   }
 }

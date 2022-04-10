@@ -1,6 +1,7 @@
 // .electron-delta.js
 const DeltaBuilder = require("@electron-delta/builder");
 const path = require("path");
+const fetch = require("node-fetch");
 
 const options = {
   productIconPath: path.join(__dirname, "icon.ico"),
