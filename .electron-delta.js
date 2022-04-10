@@ -9,18 +9,22 @@ const options = {
   productName: "electron-sample-app",
 
   getPreviousReleases: async () => {
-    let releases = await axios.get(
+    let { data } = await axios.get(
       "https://api.github.com/repos/electron-delta/electron-sample-app/releases"
     );
 
-    console.log(releases);
-
-    return [];
-
-    // return [
-    //   "https://github.com/electron-delta/electron-sample-app/releases/download/v0.0.1/electron-sample-app-0.0.1.exe",
-    //   "https://github.com/electron-delta/electron-sample-app/releases/download/v0.0.2/electron-sample-app-0.0.2.exe",
-    // ];
+    return data.reduce((arr, release) => {
+      release.assets
+        .map((d) => d.browser_download_url)
+        .filter((d) => d.endsWith(".exe"))
+        .forEach((url) => {
+          if (url.endsWith("-delta.exe")) {
+            arr.push(url);
+          }
+        });
+      console.log(arr);
+      return arr;
+    }, []);
   },
   sign: async (filePath) => {
     // sign each delta executable
