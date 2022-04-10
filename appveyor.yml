@@ -16,7 +16,7 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product node 16.14.2
+  - ps: Update-NodeJsInstallation 16.14.2 x64
   - npm install
 
 build_script:
