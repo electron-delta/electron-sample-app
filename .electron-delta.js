@@ -4,18 +4,17 @@ const path = require("path");
 
 const options = {
   productIconPath: path.join(__dirname, "icon.ico"),
-  productName: "electron-sample-app",
-  processName: "electron-sample-app",
 
-  cache: path.join(__dirname, ".cache/ELECTRON_DELTA"),
-  logger: console,
+  productName: "electron-sample-app",
 
   getPreviousReleases: async () => {
     return [
       "https://github.com/electron-delta/electron-sample-app/releases/download/v0.0.1/electron-sample-app-0.0.1.exe",
+      "https://github.com/electron-delta/electron-sample-app/releases/download/v0.0.2/electron-sample-app-0.0.2.exe",
     ];
   },
   sign: async (filePath) => {
+    // sign each delta executable
     return filePath;
   },
 };
