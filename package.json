@@ -69,6 +69,7 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
+    "@electron-delta/builder": "github:electron-delta/electron-delta",
     "electron-updater": "^4.6.5"
   }
 }
