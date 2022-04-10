@@ -8,7 +8,6 @@ only_commits:
   message: /release/
 
 cache:
-  - node_modules
   - '%USERPROFILE%\.electron'
   - '%USERPROFILE%\.electron-delta'
 
