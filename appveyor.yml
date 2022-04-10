@@ -5,7 +5,7 @@ platform:
 
 only_commits:
   # Commit messages must contain the following word in the commit message
-  message: /dist|release/
+  message: /release/
 
 cache:
   - node_modules
