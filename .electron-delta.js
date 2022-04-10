@@ -1,7 +1,7 @@
 // .electron-delta.js
 const DeltaBuilder = require("@electron-delta/builder");
 const path = require("path");
-const fetch = require("node-fetch");
+const axios = require("axios").default;
 
 const options = {
   productIconPath: path.join(__dirname, "icon.ico"),
@@ -9,9 +9,9 @@ const options = {
   productName: "electron-sample-app",
 
   getPreviousReleases: async () => {
-    let releases = await fetch(
+    let releases = await axios.get(
       "https://api.github.com/repos/electron-delta/electron-sample-app/releases"
-    ).then((res) => res.json());
+    );
 
     console.log(releases);
 
