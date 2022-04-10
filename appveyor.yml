@@ -3,6 +3,10 @@ image: Visual Studio 2022
 platform:
   - x64
 
+only_commits:
+  # Commit messages must contain the following word in the commit message
+  message: /dist|release/
+
 cache:
   - node_modules
   - '%USERPROFILE%\.electron'
