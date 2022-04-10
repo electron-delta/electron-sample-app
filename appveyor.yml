@@ -1,0 +1,26 @@
+image: Visual Studio 2022
+
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%USERPROFILE%\.electron'
+  - '%USERPROFILE%\.electron-delta'
+
+environment:
+  GH_TOKEN:
+    secure: pE08oKmj7iPPEnU7EahJiJCsDQia05xr3abdppggRYLAlWzbECmmfSj9kvwNJPka
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node 17.9.0 x64
+  - npm install
+
+build_script:
+  - node change-version.js
+  - npm run release
+
+test: off
