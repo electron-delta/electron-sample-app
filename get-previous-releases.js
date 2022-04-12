@@ -4,8 +4,7 @@ const getPreviousReleases = async () => {
   let { data } = await axios.get(
     "https://api.github.com/repos/electron-delta/electron-sample-app/releases"
   );
-
-  return data.reduce((arr, release) => {
+  let prevReleases = data.reduce((arr, release) => {
     release.assets
       .map((d) => d.browser_download_url)
       .filter((d) => d.endsWith(".exe"))
@@ -16,6 +15,9 @@ const getPreviousReleases = async () => {
       });
     return arr;
   }, []);
+
+  console.log(prevReleases);
+  return prevReleases;
 };
 
 module.exports = getPreviousReleases;
