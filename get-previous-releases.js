@@ -1,5 +1,4 @@
 const axios = require("axios").default;
-const semver = require('semver');
 
 const getPreviousReleases = async () => {
   let { data } = await axios.get(
@@ -13,7 +12,7 @@ const getPreviousReleases = async () => {
       .filter((d) => d.endsWith(".exe"))
       .forEach((url) => {
         if (!url.endsWith("-delta.exe")) {
-          arr.push({version: semver.clean(release.tag_name), url});
+          arr.push({version: release.tag_name, url});
         }
       });
     return arr;
