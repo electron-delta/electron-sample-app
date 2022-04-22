@@ -1,12 +1,12 @@
 {
   "name": "electron-sample-app",
-  "version": "0.0.23",
+  "version": "0.0.26",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder --win",
     "release": "electron-builder --win --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
@@ -69,7 +69,7 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/builder": "^0.1.4",
+    "@electron-delta/builder": "^0.1.5",
     "axios": "^0.26.1",
     "electron-updater": "^4.6.5"
   }

@@ -6,6 +6,7 @@ const getPreviousReleases = require("./get-previous-releases");
 const options = {
   productIconPath: path.join(__dirname, "icon.ico"),
   productName: "electron-sample-app",
+  cache: "./.cache",
 
   getPreviousReleases,
   sign: async (filePath) => {
