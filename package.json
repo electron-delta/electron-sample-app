@@ -21,7 +21,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^18.1.0",
-    "electron-builder": "^22.14.13"
+    "electron-builder": "^23.0.3"
   },
   "build": {
     "appId": "com.electron.sample-app",
