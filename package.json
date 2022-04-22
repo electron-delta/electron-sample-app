@@ -71,6 +71,6 @@
   "dependencies": {
     "@electron-delta/builder": "^0.1.5",
     "axios": "^0.26.1",
-    "electron-updater": "^4.6.5"
+    "electron-updater": "^5.0.1"
   }
 }
