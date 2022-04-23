@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 
 const modifyPackageJsonVersion = (newVersion) => {
-  const packageJsonPath = path.resolve(__dirname, "package.json");
+  const packageJsonPath = path.resolve(__dirname, "../package.json");
   const packageJsonContents = fs.readFileSync(packageJsonPath);
   const packageJson = JSON.parse(packageJsonContents);
 

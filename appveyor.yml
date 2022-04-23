@@ -9,7 +9,6 @@ only_commits:
 
 cache:
   - '%USERPROFILE%\.electron'
-  - '%USERPROFILE%\.electron-delta'
 
 environment:
   GH_TOKEN:
@@ -23,7 +22,7 @@ install:
   - npm install
 
 build_script:
-  - node change-version.js
+  - node build_scripts/change-version.js
   - npm run release
 
 test: off

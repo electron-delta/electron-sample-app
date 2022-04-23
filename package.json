@@ -2,7 +2,7 @@
   "name": "electron-sample-app",
   "version": "0.0.26",
   "description": "A minimal Electron application",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -44,7 +44,6 @@
       "uninstallerIcon": "icon.ico"
     },
     "win": {
-      "sign": "sign.js",
       "target": [
         {
           "target": "nsis",
@@ -58,13 +57,9 @@
       ]
     },
     "files": [
-      "main.js",
+      "src/**/*",
       "package.json",
-      "index.html",
-      "preload.js",
-      "renderer.js",
-      "icon.ico",
-      "styles.css"
+      "icon.ico"
     ],
     "afterAllArtifactBuild": ".electron-delta.js"
   },
@@ -72,7 +67,6 @@
     "@electron-delta/builder": "^0.1.5",
     "@electron-delta/updater": "github:electron-delta/electron-delta-updater",
     "axios": "^0.26.1",
-    "electron-log": "^4.4.6",
-    "electron-updater": "^5.0.1"
+    "electron-log": "^4.4.6"
   }
 }

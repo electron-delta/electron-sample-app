@@ -8,13 +8,17 @@
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
     />
     <link href="./styles.css" rel="stylesheet" />
-    <title>Electron delta updater</title>
+    <title>Electron delta updater demo</title>
   </head>
   <body>
+    <div id="container">
     <h1>Electron delta updater</h1>
-
-    <h2 id="app-version"></h2>
-
+    <pre>
+      npm install @electron-delta/builder -D
+      npm install @electron-delta/updater
+    </pre>
+      <h2 id="app-version"></h2>
+    </div>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>
