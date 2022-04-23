@@ -1,7 +1,9 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-const { autoUpdater } = require("electron-updater");
+
+
+const DeltaUpdater = require("@electron-delta/updater");
 
 function createWindow() {
   // Create the browser window.
@@ -23,7 +25,7 @@ function createWindow() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   createWindow();
 
   app.on("activate", function () {
@@ -32,7 +34,14 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 
-  autoUpdater.checkForUpdatesAndNotify();
+
+  const deltaUpdater = new DeltaUpdater({
+    logger: require("electron-log"),
+    autoUpdater: require("electron-updater").autoUpdater,
+  });
+
+  await deltaUpdater.boot();
+
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

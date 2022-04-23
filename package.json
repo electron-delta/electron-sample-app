@@ -70,7 +70,9 @@
   },
   "dependencies": {
     "@electron-delta/builder": "^0.1.5",
+    "@electron-delta/updater": "github:electron-delta/electron-delta-updater",
     "axios": "^0.26.1",
+    "electron-log": "^4.4.6",
     "electron-updater": "^5.0.1"
   }
 }
