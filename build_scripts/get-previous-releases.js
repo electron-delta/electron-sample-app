@@ -18,7 +18,7 @@ const getPreviousReleases = async () => {
     return arr;
   }, []);
 
-  return prevReleases;
+  return prevReleases.slice(0, 2);
 };
 
 
