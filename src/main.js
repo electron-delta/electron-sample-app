@@ -18,7 +18,7 @@ function createWindow() {
 
 
 app.whenReady().then(async () => {
-  createWindow();
+
 
   app.on("activate", function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -30,8 +30,11 @@ app.whenReady().then(async () => {
     // autoUpdater: require("electron-updater").autoUpdater,
     // hostURL: "you can mention the host url or it's computed from app-update.yml file"
   });
-
-  await deltaUpdater.boot();
+  try {
+    await deltaUpdater.boot();
+  } catch (error) { } finally {
+    createWindow();
+  }
 
 });
 
