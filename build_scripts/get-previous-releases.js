@@ -2,7 +2,12 @@ const axios = require("axios").default;
 
 const getPreviousReleases = async () => {
   let { data } = await axios.get(
-    "https://api.github.com/repos/electron-delta/electron-sample-app/releases"
+    "https://api.github.com/repos/electron-delta/electron-sample-app/releases",
+    {
+      headers: {
+        "Authorization": `token ${process.env.GH_TOKEN}`,
+      }
+    }
   );
   let prevReleases = data.reduce((arr, release) => {
     release.assets
