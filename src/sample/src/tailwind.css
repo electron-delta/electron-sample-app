@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sticky {
+  @apply fixed z-[9999] bg-white bg-opacity-80 transition;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sticky .navbar-logo {
+  @apply py-2;
+}
+
+.sticky #navbarToggler span {
+  @apply bg-dark;
+}
+
+.sticky #navbarCollapse li a {
+  @apply text-dark hover:text-primary hover:opacity-100;
+}
+#navbarCollapse li .ud-menu-scroll.active {
+  @apply opacity-70;
+}
+.sticky #navbarCollapse li .ud-menu-scroll.active {
+  @apply text-primary opacity-100;
+}
+.sticky .loginBtn {
+  @apply text-dark hover:text-primary hover:opacity-100;
+}
+
+.sticky .signUpBtn {
+  @apply bg-primary text-white hover:bg-dark hover:text-white;
+}
+
+.navbarTogglerActive > span:nth-child(1) {
+  @apply top-[7px] rotate-45 transform;
+}
+.navbarTogglerActive > span:nth-child(2) {
+  @apply opacity-0;
+}
+.navbarTogglerActive > span:nth-child(3) {
+  @apply top-[-8px] rotate-[135deg];
+}

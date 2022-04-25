@@ -26,5 +26,4 @@ const getPreviousReleases = async () => {
   return prevReleases.slice(0, 3);
 };
 
-
 module.exports = getPreviousReleases;
