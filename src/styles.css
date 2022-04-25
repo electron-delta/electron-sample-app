@@ -7,7 +7,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #efefef;
+  background-color: 222222;
 }
 
 #container {
@@ -19,9 +19,9 @@ html, body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: #333;
+  color: red;
 }
 
 pre {
