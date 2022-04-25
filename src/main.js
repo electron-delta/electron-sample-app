@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
+const logger = require("electron-log");
 
 const DeltaUpdater = require("@electron-delta/updater");
 
@@ -26,15 +27,17 @@ app.whenReady().then(async () => {
 
 
   const deltaUpdater = new DeltaUpdater({
-    logger: require("electron-log"),
+    logger,
     // autoUpdater: require("electron-updater").autoUpdater,
     // hostURL: "you can mention the host url or it's computed from app-update.yml file"
   });
   try {
     await deltaUpdater.boot();
-  } catch (error) { } finally {
-    createWindow();
+  } catch (error) {
+    logger.error(error);
   }
+
+  createWindow();
 
 });
 
