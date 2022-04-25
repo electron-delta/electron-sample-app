@@ -23,7 +23,7 @@ const getPreviousReleases = async () => {
     return arr;
   }, []);
 
-  return prevReleases.slice(0, 2);
+  return prevReleases.slice(0, 3);
 };
 
 
