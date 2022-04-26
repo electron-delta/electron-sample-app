@@ -23,7 +23,7 @@ jobs:
       - name: change version
         run: node build_scripts/change-version.js
       - name: configure git
-      - run: |
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add --all
