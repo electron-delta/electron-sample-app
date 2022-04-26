@@ -26,6 +26,7 @@ try {
     }
     let newVersion = stdout.trim();
     modifyPackageJsonVersion(newVersion);
+    exec("npm version patch");
   });
 } catch (err) {
   console.error(err);
