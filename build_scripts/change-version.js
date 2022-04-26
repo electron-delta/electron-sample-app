@@ -26,7 +26,13 @@ try {
     }
     let newVersion = stdout.trim();
     modifyPackageJsonVersion(newVersion);
-    exec("npm version patch");
+    exec("git add --all && git commit -m 'release skip ci' && npm version patch", (error, stdout) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return;
+      }
+      console.log(stdout);
+    });
   });
 } catch (err) {
   console.error(err);
