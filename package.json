@@ -7,8 +7,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder --win",
-    "release": "electron-builder --win --publish=always",
-    "postversion": "git add --all && git commit -m 'release skip ci' --amend && git push orign main --tags"
+    "release": "electron-builder --win --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
