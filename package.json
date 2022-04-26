@@ -21,7 +21,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^18.1.0",
-    "electron-builder": "^23.0.3"
+    "electron-builder": "^23.0.3",
+    "@electron-delta/builder": "^0.1.5"
   },
   "build": {
     "appId": "com.electron.sample-app",
@@ -65,7 +66,6 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/builder": "^0.1.5",
     "@electron-delta/updater": "github:electron-delta/electron-delta-updater",
     "axios": "^0.26.1",
     "electron-log": "^4.4.6"
