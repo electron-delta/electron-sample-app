@@ -23,6 +23,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+         with:
+          persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
@@ -30,9 +33,26 @@ jobs:
 
       - name: npm install
         run: npm ci
+
       - name: change version
         run: node build_scripts/change-version.js
+
+      - name: configure git
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add --all
+          git commit -m "chnage version"
+          npm version patch
+          git commit -m "release skip ci" --amend
+
       - name: electron builder build and publish
         run: npm run release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: ${{ github.ref }}
