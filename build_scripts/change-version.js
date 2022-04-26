@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const { exec } = require('child_process');
+
 const modifyPackageJsonVersion = (newVersion) => {
   const packageJsonPath = path.resolve(__dirname, "../package.json");
   const packageJsonContents = fs.readFileSync(packageJsonPath);
@@ -17,8 +19,14 @@ const modifyPackageJsonVersion = (newVersion) => {
 };
 
 try {
-  let newVersion = process.env.APPVEYOR_BUILD_VERSION;
-  modifyPackageJsonVersion(newVersion);
+  exec("git tag --sort=committerdate | grep -E '[0-9]' | tail -1 | cut -b 2-7", (error, stdout) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    let newVersion = stdout.trim();
+    modifyPackageJsonVersion(newVersion);
+  });
 } catch (err) {
   console.error(err);
 }
