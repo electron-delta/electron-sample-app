@@ -59,7 +59,8 @@
     "files": [
       "src/**/*",
       "package.json",
-      "icon.ico"
+      "icon.ico",
+      "tray.png"
     ],
     "afterAllArtifactBuild": ".electron-delta.js"
   },

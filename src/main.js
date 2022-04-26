@@ -1,10 +1,10 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require("electron");
 const path = require("path");
 const logger = require("electron-log");
 
 const DeltaUpdater = require("@electron-delta/updater");
 
-let mainWindow;
+let mainWindow, tray;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -38,6 +38,20 @@ app.whenReady().then(async () => {
   }
 
   createWindow();
+
+
+  tray = new Tray(path.join(app.getAppPath(), "tray.png"));
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: "Check for updates",
+      click: () => {
+        deltaUpdater.checkForUpdates();
+      }
+    }
+  ]);
+
+  tray.setToolTip("Electron Sample App");
+  tray.setContextMenu(contextMenu);
 
 });
 
