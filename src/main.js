@@ -8,8 +8,8 @@ let mainWindow, tray;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 600,
+    height: 400,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
