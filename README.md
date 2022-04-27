@@ -50,8 +50,10 @@ const getPreviousReleases = async () => {
     }
   ];
 };
+```
 
 6. Change the `version` to `1.0.1` and create the distribution files.
+
 ```bash
 npm version 1.0.1
 npm run dist
