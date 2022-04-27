@@ -66,7 +66,7 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/updater": "^0.1.10",
+    "@electron-delta/updater": "^0.1.11",
     "axios": "^0.27.2",
     "electron-log": "^4.4.6"
   }
