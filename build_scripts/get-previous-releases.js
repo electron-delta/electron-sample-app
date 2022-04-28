@@ -17,13 +17,13 @@ const getPreviousReleases = async () => {
       .filter((d) => d.endsWith(".exe"))
       .forEach((url) => {
         if (!url.endsWith("-delta.exe")) {
-          arr.push({version: release.tag_name, url});
+          arr.push({ version: release.tag_name, url });
         }
       });
     return arr;
   }, []);
 
-  return prevReleases;
+  return prevReleases.slice(0, 3);
 };
 
 module.exports = getPreviousReleases;
