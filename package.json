@@ -20,7 +20,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-delta/builder": "^0.1.10",
+    "@electron-delta/builder": "^0.1.13",
     "electron": "^19.0.3",
     "electron-builder": "^23.0.3"
   },
