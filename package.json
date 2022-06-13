@@ -21,7 +21,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "@electron-delta/builder": "^0.1.14",
-    "electron": "^19.0.3",
+    "electron": "^19.0.4",
     "electron-builder": "^23.0.3"
   },
   "build": {
