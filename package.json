@@ -1,13 +1,15 @@
 {
   "name": "electron-sample-app",
-  "version": "0.0.93",
+  "version": "3.0.0",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder --win",
-    "release": "electron-builder --win --publish=always"
+    "dist:mac": "electron-builder --mac --x64",
+    "dist:win": "electron-builder --win --x64",
+    "dist": "electron-builder --win --mac --x64",
+    "release": "electron-builder --win --mac --x64 --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
@@ -20,7 +22,6 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-delta/builder": "^0.1.10",
     "electron": "^18.1.0",
     "electron-builder": "^23.0.3"
   },
@@ -28,7 +29,20 @@
     "appId": "com.electron.sample-app",
     "compression": "maximum",
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "publish": [
+        {
+          "provider": "generic",
+          "url": "http://localhost:3000"
+        }
+      ]
+    },
+    "dmg": {
+      "writeUpdateInfo": false
     },
     "nsis": {
       "oneClick": true,
