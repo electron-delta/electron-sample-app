@@ -8,8 +8,8 @@
     "pack": "electron-builder --dir",
     "dist:mac": "electron-builder --mac",
     "dist:win": "electron-builder --win",
-    "dist": "electron-builder --win --mac",
-    "release": "electron-builder --win --mac --publish=always"
+    "dist": "electron-builder --win --mac --x64",
+    "release": "electron-builder --win --mac --x64 --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
