@@ -1,15 +1,15 @@
 {
   "name": "electron-sample-app",
-  "version": "3.0.0",
+  "version": "2.0.1",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist:mac": "electron-builder --mac --x64",
-    "dist:win": "electron-builder --win --x64",
-    "dist": "electron-builder --win --mac --x64",
-    "release": "electron-builder --win --mac --x64 --publish=always"
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist": "electron-builder --win --mac",
+    "release": "electron-builder --win --mac --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [
@@ -22,17 +22,31 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^18.1.0",
+    "@electron-delta/builder": "^0.1.14",
+    "electron": "^19.0.4",
     "electron-builder": "^23.0.3"
   },
   "build": {
     "appId": "com.electron.sample-app",
     "compression": "maximum",
     "mac": {
+      "gatekeeperAssess": true,
       "category": "public.app-category.developer-tools",
       "target": [
-        "zip",
-        "dmg"
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        },
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
       ],
       "publish": [
         {
@@ -58,11 +72,33 @@
       "installerHeaderIcon": "icon.ico",
       "uninstallerIcon": "icon.ico"
     },
+    "nsisWeb": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "differentialPackage": true,
+      "createDesktopShortcut": "always",
+      "deleteAppDataOnUninstall": true,
+      "artifactName": "${productName}-${version}.${ext}",
+      "uninstallDisplayName": "${productName}",
+      "installerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    },
     "win": {
       "target": [
         {
           "target": "nsis",
           "arch": [
+            "ia32",
+            "x64"
+          ]
+        },
+        {
+          "target": "nsis-web",
+          "arch": [
+            "ia32",
             "x64"
           ]
         }
@@ -75,13 +111,14 @@
       "src/**/*",
       "package.json",
       "icon.ico",
-      "tray.png"
+      "tray.png",
+      "blog.png"
     ],
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/updater": "^0.1.11",
+    "@electron-delta/updater": "^0.1.15",
     "axios": "^0.27.2",
-    "electron-log": "^4.4.6"
+    "electron-log": "^4.4.7"
   }
 }
