@@ -9,7 +9,9 @@
     "dist:mac": "electron-builder --mac",
     "dist:win": "electron-builder --win",
     "dist": "electron-builder --win --mac --x64",
-    "release": "electron-builder --win --mac --x64 --publish=always"
+    "release": "electron-builder --win --mac --x64 --publish=always",
+    "release:win": "electron-builder --win --x64 --publish=always",
+    "release:mac": "electron-builder --mac --x64 --publish=always"
   },
   "repository": "https://github.com/electron-delta/electron-sample-app",
   "keywords": [

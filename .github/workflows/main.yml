@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  release-mac:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: macos-latest
     steps:
@@ -31,7 +31,42 @@ jobs:
           npm version patch
           git commit -m "release skip ci" --amend
       - name: electron builder build and publish
-        run: npm run release
+        run: npm run release:mac
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+          CSC_LINK: ${{ secrets.CSC_LINK }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: ${{ github.ref }}
+  release-win:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          architecture: 'x64'
+      - name: npm install
+        run: npm ci
+      - name: change version
+        run: node build_scripts/change-version.js
+      - name: configure git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add --all
+          git commit -m "chnage version"
+          npm version patch
+          git commit -m "release skip ci" --amend
+      - name: electron builder build and publish
+        run: npm run release:win
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
