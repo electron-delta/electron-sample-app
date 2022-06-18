@@ -24,9 +24,11 @@ const getPreviousReleases = async ({ platform, target }) => {
     return arr;
   }, []);
 
-  console.log("prevReleases", prevReleases);
+  const oldreleases = prevReleases.slice(0, 3);
 
-  return prevReleases.slice(0, 3);
+  console.log("prevReleases", oldreleases);
+
+  return oldreleases;
 };
 
 module.exports = getPreviousReleases;

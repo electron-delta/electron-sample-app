@@ -7,6 +7,7 @@ const getPreviousReleases = require("./build_scripts/get-previous-releases");
 const options = {
   productIconPath: path.join(__dirname, "icon.ico"),
   productName: "electron-sample-app",
+  cache: path.join(__dirname, "./cache"),
   getPreviousReleases: ({ platform, target }) => {
     console.log("getPreviousReleases", platform, target);
     return getPreviousReleases({ platform, target });
