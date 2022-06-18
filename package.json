@@ -22,7 +22,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-delta/builder": "^0.1.14",
+    "@electron-delta/builder": "github:electron-delta/electron-delta#add-macos-support",
     "electron": "^19.0.4",
     "electron-builder": "^23.0.3"
   },
@@ -117,7 +117,7 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/updater": "^0.1.15",
+    "@electron-delta/updater": "github:electron-delta/electron-delta-updater#support-mac",
     "axios": "^0.27.2",
     "electron-log": "^4.4.7"
   }

@@ -9,7 +9,7 @@ const options = {
   productName: "electron-sample-app",
   getPreviousReleases: ({ platform, target }) => {
     console.log("getPreviousReleases", platform, target);
-    return [];
+    return getPreviousReleases({ platform, target });
   },
   sign: async (filePath) => {
     // sign each delta executable
