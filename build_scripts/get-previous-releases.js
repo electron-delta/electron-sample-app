@@ -1,12 +1,15 @@
 const axios = require("axios").default;
 
-// const headers = {
-//   "Authorization": `token ${process.env.GH_TOKEN}`,
-// };
+const config = {
+  headers: {
+    "Authorization": `token ${process.env.GH_TOKEN}`,
+  }
+};
 
 const getPreviousReleases = async ({ platform, target }) => {
   let { data } = await axios.get(
     "https://api.github.com/repos/electron-delta/electron-sample-app/releases",
+    config
   );
 
   const ext = platform === 'win' ? (target === 'nsis-web' ? ".7z" : ".exe") : ".zip";
