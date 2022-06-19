@@ -80,7 +80,7 @@
       "differentialPackage": true,
       "createDesktopShortcut": "always",
       "deleteAppDataOnUninstall": true,
-      "artifactName": "${productName}-${version}.${ext}",
+      "artifactName": "${productName}-${version}-web.${ext}",
       "uninstallDisplayName": "${productName}",
       "installerIcon": "icon.ico",
       "installerHeaderIcon": "icon.ico",
