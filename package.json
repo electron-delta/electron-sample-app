@@ -1,6 +1,6 @@
 {
   "name": "electron-sample-app",
-  "version": "0.0.127",
+  "version": "0.0.128",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
