@@ -13,11 +13,14 @@ const getPreviousReleases = async ({ platform, target }) => {
   );
 
   const ext = platform === 'win' ? (target === 'nsis-web' ? ".7z" : ".exe") : ".zip";
+
+
   let prevReleases = data.reduce((arr, release) => {
     release.assets
       .map((d) => {
         return d.browser_download_url
       })
+      .filter((d) => { return !d.includes('untagged') })
       .filter((d) => d.endsWith(ext))
       .forEach((url) => {
         // ignore web installers or delta files
