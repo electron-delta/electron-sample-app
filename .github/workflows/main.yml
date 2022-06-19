@@ -71,6 +71,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
           CSC_LINK: ${{ secrets.CSC_LINK }}
+      - name: Final git pull
+        run: git pull origin main
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
