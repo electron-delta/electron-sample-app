@@ -117,6 +117,6 @@
   "dependencies": {
     "@electron-delta/updater": "github:electron-delta/electron-delta-updater#support-mac",
     "axios": "^0.27.2",
-    "electron-log": "^4.4.7"
+    "electron-log": "^4.4.8"
   }
 }
