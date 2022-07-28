@@ -25,7 +25,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "@electron-delta/builder": "github:electron-delta/electron-delta#add-macos-support",
-    "electron": "^19.0.4",
+    "electron": "^19.0.10",
     "electron-builder": "^23.0.3"
   },
   "build": {
