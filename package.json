@@ -1,6 +1,6 @@
 {
   "name": "electron-sample-app",
-  "version": "0.0.141",
+  "version": "2.0.3",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
@@ -80,7 +80,7 @@
       "differentialPackage": true,
       "createDesktopShortcut": "always",
       "deleteAppDataOnUninstall": true,
-      "artifactName": "${productName}-${version}-web.${ext}",
+      "artifactName": "${productName}-Setup-${version}.${ext}",
       "uninstallDisplayName": "${productName}",
       "installerIcon": "icon.ico",
       "installerHeaderIcon": "icon.ico",
@@ -89,20 +89,17 @@
     "win": {
       "target": [
         {
-          "target": "nsis",
-          "arch": [
-            "x64"
-          ]
+          "target": "nsis"
         },
         {
-          "target": "nsis-web",
-          "arch": [
-            "x64"
-          ]
+          "target": "nsis-web"
         }
       ],
       "publish": [
-        "github"
+        {
+          "provider": "generic",
+          "url": "http://localhost:3000"
+        }
       ]
     },
     "files": [

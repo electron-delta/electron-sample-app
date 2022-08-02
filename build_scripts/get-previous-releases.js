@@ -24,7 +24,7 @@ const getPreviousReleases = async ({ platform, target }) => {
       .filter((d) => d.endsWith(ext))
       .forEach((url) => {
         // ignore web installers or delta files
-        if (!url.endsWith("-delta.exe") && !url.endsWith("-web.exe")) {
+        if (!url.endsWith("-delta.exe") && !url.includes("-Setup")) {
           arr.push({ version: release.tag_name, url });
         }
       });
