@@ -2,7 +2,7 @@ name: Release to github using @electron-delta/builder
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -16,15 +16,14 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          architecture: 'x64'
+          node-version: "16"
+          architecture: "x64"
       - name: npm install
         run: npm ci
       - name: configure git
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          npm version patch
           npm version patch
           git commit -m "release [skip ci]" --amend
       - name: electron builder build and publish
@@ -48,8 +47,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          architecture: 'x64'
+          node-version: "16"
+          architecture: "x64"
       - name: npm install
         run: npm ci
       - name: configure git

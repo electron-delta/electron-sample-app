@@ -30,7 +30,7 @@ app.whenReady().then(async () => {
     logger,
     // autoUpdater: require("electron-updater").autoUpdater,
     // hostURL: "you can mention the host url or it's computed from app-update.yml file"
-    hostURL: "http://localhost:3000",
+    // hostURL: "http://localhost:3000",
   });
   try {
     await deltaUpdater.boot({
