@@ -1,6 +1,6 @@
 {
   "name": "electron-sample-app",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "A minimal Electron application",
   "main": "src/main.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-delta/builder": "github:electron-delta/electron-delta",
+    "@electron-delta/builder": "0.1.17",
     "electron": "^19.0.4",
     "electron-builder": "^23.0.3"
   },
@@ -87,6 +87,7 @@
     },
     "win": {
       "target": [
+        "nsis",
         "nsis-web"
       ],
       "publish": [
@@ -105,7 +106,7 @@
     "afterAllArtifactBuild": ".electron-delta.js"
   },
   "dependencies": {
-    "@electron-delta/updater": "github:electron-delta/electron-delta-updater",
+    "@electron-delta/updater": "0.1.17",
     "axios": "^0.27.2",
     "electron-log": "^4.4.7"
   }

@@ -11,12 +11,6 @@ const options = {
   getPreviousReleases: ({ platform, target }) => {
     console.log("getPreviousReleases", platform, target);
     return getPreviousReleases({ platform, target });
-    // return [
-    //   {
-    //     version: "2.0.3",
-    //     url: "http://localhost:3000/electron-sample-app-2.0.3-mac.zip"
-    //   }
-    // ];
   },
   sign: async (filePath) => {
     // sign each delta executable
